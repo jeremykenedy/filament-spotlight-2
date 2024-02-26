@@ -3,8 +3,8 @@
 namespace jeremykenedy\FilamentSpotlight\Actions;
 
 use Filament\Facades\Filament;
-use LivewireUI\Spotlight\Spotlight;
 use jeremykenedy\FilamentSpotlight\Commands\ResourceCommand;
+use LivewireUI\Spotlight\Spotlight;
 
 class RegisterResources
 {

@@ -4,8 +4,8 @@ namespace jeremykenedy\FilamentSpotlight\Actions;
 
 use Filament\Facades\Filament;
 use Filament\Navigation\UserMenuItem;
-use LivewireUI\Spotlight\Spotlight;
 use jeremykenedy\FilamentSpotlight\Commands\PageCommand;
+use LivewireUI\Spotlight\Spotlight;
 
 class RegisterUserMenu
 {

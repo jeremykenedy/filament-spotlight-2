@@ -8,10 +8,10 @@ use Filament\PluginServiceProvider;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Event;
-use Livewire\Livewire;
 use jeremykenedy\FilamentSpotlight\Actions\RegisterPages;
 use jeremykenedy\FilamentSpotlight\Actions\RegisterResources;
 use jeremykenedy\FilamentSpotlight\Actions\RegisterUserMenu;
+use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Package;
 
 class FilamentSpotlightServiceProvider extends PluginServiceProvider
