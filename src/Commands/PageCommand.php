@@ -1,6 +1,6 @@
 <?php
 
-namespace pxlrbt\FilamentSpotlight\Commands;
+namespace jeremykenedy\FilamentSpotlight\Commands;
 
 use LivewireUI\Spotlight\Spotlight;
 use LivewireUI\Spotlight\SpotlightCommand;

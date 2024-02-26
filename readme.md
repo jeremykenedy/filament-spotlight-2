@@ -1,63 +1,27 @@
-<div class="filament-hidden">
-    
-![header](./.github/resources/pxlrbt-spotlight.png)
-pxlrbt-translate-action.png
-</div>
+![header](./.github/resources/header.png)
+
 
 # Filament Spotlight
 
-<div class="filament-hidden">
-    
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/pxlrbt/filament-spotlight.svg?include_prereleases)](https://packagist.org/packages/pxlrbt/filament-spotlight)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/jeremykenedy/filament-spotlight.svg?include_prereleases)](https://packagist.org/packages/jeremykenedy/filament-spotlight)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE.md)
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/pxlrbt/filament-spotlight/code-style.yml?branch=main&label=Code%20style&style=flat-square)
-[![Total Downloads](https://img.shields.io/packagist/dt/pxlrbt/filament-spotlight.svg)](https://packagist.org/packages/pxlrbt/filament-spotlight)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/jeremykenedy/filament-spotlight/code-style.yml?branch=main&label=Code%20style&style=flat-square)
+[![Total Downloads](https://img.shields.io/packagist/dt/jeremykenedy/filament-spotlight.svg)](https://packagist.org/packages/jeremykenedy/filament-spotlight)
 
-</div>
 
 Quickly navigate your Filament Resources with Spotlight functionality.
 
 Supports pages, resources and links from the user menu.
 
-<div class="filament-hidden">
-    
 https://user-images.githubusercontent.com/22632550/159757479-ca9c3f46-7638-4889-98ba-6164e5205509.mp4
 
-</div>
 
+## Installation via Composer
 
-## Installation
-
-
-| Plugin Version | Filament Version | PHP Version |
-|----------------|-----------------|-------------|
-| 0.x            | 2.x   | \> 8.0      |
-| 1.x            | 3.x             | \> 8.1      |
-
+**Requires PHP > 8.0 and Filament > 2.10.34**
 
 ```bash
-composer require pxlrbt/filament-spotlight
-```
-
-### Assets
-
-Publish the assets (Filament > 3)
-
-```bash
-php artisan filament:assets
-```
-
-### Plugin registration
-
-To use this plugin register it in your panel configuration:
-
-```php
-use pxlrbt\FilamentSpotlight\SpotlightPlugin;
-
-$panel
-    ->plugins([
-        SpotlightPlugin::make(),
-    ]);
+composer require jeremykenedy/filament-spotlight
 ```
 
 ## Usage
@@ -78,19 +42,6 @@ CMD + /
 ### Setup
 
 This plugin relies on the same properties and methods used for Filament's global search. For records showing up with the correct name in "Edit/View" you need to set `$recordTitleAttribute`. [Check the docs for more information](https://filamentphp.com/docs/2.x/admin/resources/global-search)
-
-#### Excluding pages
-
-If you need to exclude a page from the spotlight results you may do so by adding a static `shouldRegisterSpotlight` method to the page and return false:
-
-```php
-public static function shouldRegisterSpotlight(): bool
-{
-    return false;
-}
-```
-
-This can be useful when you have pages that require URL parameters.
 
 ## Translation
 
@@ -115,7 +66,7 @@ Install the packages in your app's `composer.json`:
 
 ```json
 "require": {
-    "pxlrbt/filament-spotlight": "dev-fix/error-message as main-dev",
+    "jeremykenedy/filament-spotlight": "dev-fix/error-message as main-dev",
 },
 "repositories": [
     {
@@ -128,6 +79,6 @@ Install the packages in your app's `composer.json`:
 Now, run `composer update`.
 
 ## Credits
-- [Dennis Koch](https://github.com/pxlrbt)
+- [Dennis Koch](https://github.com/jeremykenedy)
 - [All Contributors](../../contributors)
 - [Wire Elements Spotlight](https://github.com/wire-elements/spotlight)

@@ -1,40 +1,28 @@
 <?php
 
-namespace pxlrbt\FilamentSpotlight\Actions;
+namespace jeremykenedy\FilamentSpotlight\Actions;
 
-use Filament\Panel;
-use Filament\Resources\Pages\PageRegistration;
+use Filament\Facades\Filament;
 use LivewireUI\Spotlight\Spotlight;
-use pxlrbt\FilamentSpotlight\Commands\ResourceCommand;
+use jeremykenedy\FilamentSpotlight\Commands\ResourceCommand;
 
 class RegisterResources
 {
-    public static function boot(Panel $panel)
+    public function __invoke()
     {
-        $resources = $panel->getResources();
+        $resources = Filament::getResources();
 
         foreach ($resources as $resource) {
-            if (method_exists($resource, 'shouldRegisterSpotlight') && $resource::shouldRegisterSpotlight() === false) {
-                continue;
-            }
-
             $pages = $resource::getPages();
 
             foreach ($pages as $key => $page) {
-                if (method_exists($page->getPage(), 'shouldRegisterSpotlight') && $page->getPage()::shouldRegisterSpotlight() === false) {
-                    continue;
-                }
-
-                /**
-                 * @var PageRegistration $page
-                 */
-                if (blank($key) || blank($page->getPage())) {
+                if (blank($key) || blank($page['class'])) {
                     continue;
                 }
 
                 $command = new ResourceCommand(
                     resource: $resource,
-                    page: $page->getPage(),
+                    page: $page['class'],
                     key: $key,
                 );
 

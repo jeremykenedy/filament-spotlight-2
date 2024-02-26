@@ -1,3 +1,6 @@
+/*@import '../../vendor/wire-elements/spotlight/resources/css/spotlight.css';*/
+
+/*@tailwind base;*/
 @tailwind components;
 @tailwind utilities;
 

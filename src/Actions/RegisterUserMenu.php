@@ -1,26 +1,24 @@
 <?php
 
-namespace pxlrbt\FilamentSpotlight\Actions;
+namespace jeremykenedy\FilamentSpotlight\Actions;
 
 use Filament\Facades\Filament;
-use Filament\Navigation\MenuItem;
-use Filament\Panel;
+use Filament\Navigation\UserMenuItem;
 use LivewireUI\Spotlight\Spotlight;
-use pxlrbt\FilamentSpotlight\Commands\PageCommand;
+use jeremykenedy\FilamentSpotlight\Commands\PageCommand;
 
 class RegisterUserMenu
 {
-    public static function boot(Panel $panel)
+    public function __invoke()
     {
-        $self = new static();
         /**
-         * @var array<MenuItem> $items
+         * @var array<UserMenuItem> $items
          */
-        $items = $panel->getUserMenuItems();
+        $items = Filament::getUserMenuItems();
 
         foreach ($items as $key => $item) {
-            $name = $self->getName($key, $item);
-            $url = $self->getUrl($key, $item);
+            $name = $this->getName($key, $item);
+            $url = $this->getUrl($key, $item);
 
             if (blank($name) || blank($url)) {
                 continue;
@@ -35,7 +33,7 @@ class RegisterUserMenu
         }
     }
 
-    protected function getName(string $key, MenuItem $item): ?string
+    protected function getName(string $key, UserMenuItem $item): string
     {
         return match ($key) {
             'account' => $item->getLabel() ?? __('Your Account'),
@@ -44,10 +42,10 @@ class RegisterUserMenu
         };
     }
 
-    protected function getUrl(string $key, MenuItem $item): string
+    protected function getUrl(string $key, UserMenuItem $item): string
     {
         return match ($key) {
-            'logout' => $item->getUrl() ?? Filament::getLogoutUrl(),
+            'logout' => $item->getUrl() ?? route('filament.auth.logout'),
             default => $item->getUrl()
         };
     }

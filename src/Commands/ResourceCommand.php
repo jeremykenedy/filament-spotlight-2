@@ -1,10 +1,9 @@
 <?php
 
-namespace pxlrbt\FilamentSpotlight\Commands;
+namespace jeremykenedy\FilamentSpotlight\Commands;
 
 use Filament\Resources\Pages\CreateRecord;
 use Filament\Resources\Pages\EditRecord;
-use Filament\Resources\Pages\ManageRelatedRecords;
 use Filament\Resources\Pages\Page;
 use Filament\Resources\Pages\ViewRecord;
 use Filament\Resources\Resource;
@@ -47,18 +46,12 @@ class ResourceCommand extends SpotlightCommand
 
     public function getName(): string
     {
-        return collect([
-            $this->resource::getNavigationGroup(),
-            $this->resource::getBreadcrumb(),
-            $this->page::getNavigationLabel(),
-        ])
-            ->filter()
-            ->join(' / ');
+        return $this->resource::getBreadcrumb().' – '.$this->page->getBreadcrumb();
     }
 
     public function getUrl(null|int|string $recordKey): string
     {
-        return $this->resource::getUrl($this->key, $recordKey ? ['record' => $recordKey] : []);
+        return $this->resource::getUrl($this->key, $recordKey);
     }
 
     public function shouldBeShown(): bool
@@ -72,9 +65,7 @@ class ResourceCommand extends SpotlightCommand
     protected function hasDependencies(): bool
     {
         return match (true) {
-            $this->page instanceof EditRecord => true,
-            $this->page instanceof ViewRecord => true,
-            $this->page instanceof ManageRelatedRecords => true,
+            $this->page instanceof EditRecord, $this->page instanceof ViewRecord => true,
             default => false,
         };
     }
