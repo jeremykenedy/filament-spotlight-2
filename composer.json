@@ -1,0 +1,42 @@
+{
+    "name": "jeremykenedy/filament-spotlight-2",
+    "description": "Customized version Spotlight for Filament Admin",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "spotlight",
+        "alfred",
+        "wire-elements",
+        "filament",
+        "laravel-filament"
+    ],
+    "authors": [
+        {
+            "name": "Dennis Koch",
+            "email": "info@pixelarbeit.de"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "filament/filament": "^3.0.0-stable",
+        "wire-elements/spotlight": "^2.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "jeremykenedy\\FilamentSpotlight\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "jeremykenedy\\FilamentSpotlight\\SpotlightServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "pint": "vendor/bin/pint"
+    }
+}
